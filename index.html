@@ -31,13 +31,21 @@
             line-height: 1.6;
         }
 
+        /* --- FLORES AÑADIDAS --- */
+        .floral-img { position: absolute; z-index: 0; pointer-events: none; opacity: 0.8; width: 220px; max-width: 45vw; }
+        .flower-tl { top: -20px; left: -20px; transform: rotate(-30deg); }
+        .flower-br { bottom: -20px; right: -20px; transform: rotate(150deg); }
+        .floral-bg-fixed { position: fixed; z-index: -1; opacity: 0.08; width: 350px; pointer-events: none; }
+        .bg-f1 { top: 10%; left: -100px; transform: rotate(45deg); }
+        .bg-f2 { bottom: 15%; right: -100px; transform: rotate(-45deg); }
+
         /* --- SOBRE MINIMALISTA --- */
         #envelope-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: var(--blanco); display: flex; flex-direction: column; justify-content: center; align-items: center;
             z-index: 10000; transition: transform 1.4s cubic-bezier(0.85, 0, 0.15, 1);
         }
-        .env-wrapper { position: relative; width: 300px; height: 200px; cursor: pointer; perspective: 1000px; }
+        .env-wrapper { position: relative; width: 300px; height: 200px; cursor: pointer; perspective: 1000px; z-index: 10; }
         .env-body { position: absolute; bottom: 0; width: 100%; height: 100%; background: var(--palo-rosa-claro); border: 1px solid var(--palo-rosa); z-index: 2; border-radius: 2px; }
         .env-flap { position: absolute; top: 0; left: 0; width: 100%; height: 110px; background: #EAD8DB; clip-path: polygon(0 0, 50% 100%, 100% 0); transform-origin: top; transition: transform 0.8s ease; z-index: 4; }
         .env-letter { position: absolute; bottom: 5px; left: 5px; width: 290px; height: 190px; background: var(--blanco); border: 1px solid var(--palo-rosa); display: flex; align-items: center; justify-content: center; z-index: 1; transition: transform 0.8s ease 0.4s; }
@@ -67,12 +75,25 @@
         .hero-text span { font-family: var(--script); font-size: clamp(2rem, 8vw, 4rem); color: var(--palo-rosa); display: block; margin-top: -10px; }
 
         /* --- SECCIONES FLUIDAS --- */
-        section { padding: 120px 8%; max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+        section { padding: 120px 8%; max-width: 1200px; margin: 0 auto; text-align: center; }
         .reveal { opacity: 0; transform: translateY(30px); transition: 1.5s cubic-bezier(0.2, 1, 0.3, 1); will-change: transform, opacity; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         .phrase { font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2.5rem); font-style: italic; line-height: 1.5; color: var(--texto); font-weight: 300; }
         .divider { width: 1px; height: 100px; background: var(--palo-rosa); margin: 60px auto; }
+
+        /* --- CAJAS DE UBICACIÓN AÑADIDAS --- */
+        .loc-box {
+            position: relative; padding: 60px 20px; margin: 40px auto; max-width: 800px;
+            background-size: cover; background-position: center; border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden;
+        }
+        .loc-box::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+            z-index: 1;
+        }
+        .loc-box > * { position: relative; z-index: 2; }
 
         /* --- COUNTDOWN REFINADO --- */
         .countdown { display: flex; justify-content: center; gap: 40px; margin: 60px 0; }
@@ -86,7 +107,7 @@
             border: 1px solid var(--oro); color: var(--texto);
             text-decoration: none; font-size: 0.75rem; letter-spacing: 4px;
             text-transform: uppercase; transition: 0.5s ease;
-            background: transparent; margin: 10px;
+            background: transparent; margin: 10px; cursor: pointer;
         }
         .btn-luxury:hover { background: var(--oro); color: var(--blanco); }
         .btn-whatsapp { background: #25D366; border-color: #25D366; color: white; }
@@ -94,15 +115,6 @@
         /* --- UBICACIÓN & INFO --- */
         .info-title { font-family: var(--serif); font-size: 2.2rem; color: var(--oro); margin-bottom: 10px; font-weight: 400; }
         .info-sub { font-family: var(--sans); font-weight: 300; letter-spacing: 4px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 30px; display: block; }
-
-        /* --- ESTILOS AGREGADOS PARA UBICACIONES --- */
-        .location-card {
-            padding: 80px 20px; border: 1px solid var(--oro); border-radius: 2px;
-            background-size: cover; background-position: center;
-            max-width: 800px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            position: relative;
-        }
-        .location-card * { position: relative; z-index: 1; }
 
         /* --- DRESS CODE: SIN ROJO NI TACHES --- */
         .dress-code { padding: 80px 0; }
@@ -125,18 +137,12 @@
         .wish-post strong { font-family: var(--serif); font-size: 1.2rem; color: var(--oro); font-weight: 400; display: block; margin-bottom: 5px; }
         .wish-post p { font-weight: 300; font-size: 0.95rem; font-style: italic; color: var(--texto); }
 
-        /* --- FLORES --- */
-        .floral-decor { position: absolute; width: 250px; height: 250px; background-size: contain; background-repeat: no-repeat; opacity: 0.6; pointer-events: none; z-index: 0; }
-        .flower-tl { top: -20px; left: -20px; background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Watercolor_flower_vector_pink.png/640px-Watercolor_flower_vector_pink.png'); }
-        .flower-br { bottom: -20px; right: -20px; background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Watercolor_flower_vector_pink.png/640px-Watercolor_flower_vector_pink.png'); transform: rotate(180deg); }
-        .flower-fixed { position: fixed; opacity: 0.15; z-index: 0; }
-
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             section { padding: 80px 20px; }
             .countdown { gap: 20px; }
             .hero { height: 90vh; }
-            .location-card { padding: 60px 15px; }
+            .loc-box { padding: 40px 15px; }
         }
 
         .music-toggle { position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px; border-radius: 50%; background: var(--blanco); border: 1px solid var(--palo-rosa); color: var(--palo-rosa); z-index: 1000; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -150,11 +156,11 @@
     <button id="musicToggleBtn" class="music-toggle" onclick="toggleMusic()"><i class="fa-solid fa-pause"></i></button>
 
     <div id="envelope-screen">
-        <div class="floral-decor flower-tl"></div>
-        <div class="floral-decor flower-br"></div>
-
+        <img src="https://static.vecteezy.com/system/resources/previews/010/834/170/original/watercolor-rose-pink-flower-free-png.png" class="floral-img flower-tl" alt="Flor">
+        <img src="https://static.vecteezy.com/system/resources/previews/010/834/170/original/watercolor-rose-pink-flower-free-png.png" class="floral-img flower-br" alt="Flor">
+        
         <div class="env-wrapper" id="envelope">
-            <div class="env-letter">
+            <div class="env-letter" id="envCard">
                 <p style="position:absolute; top:15px; font-size:0.5rem; letter-spacing:3px; opacity:0.5;">INVYTIA EXCLUSIVE</p>
                 <h2>Teresa</h2>
             </div>
@@ -162,13 +168,14 @@
             <div class="env-body"></div>
             <div class="wax-seal">T</div>
         </div>
-        <p style="margin-top: 40px; letter-spacing: 6px; color: var(--palo-rosa); font-weight: 300; font-size: 0.7rem;">TAP TO OPEN</p>
+        <p style="position: relative; z-index: 10; margin-top: 40px; letter-spacing: 6px; color: var(--palo-rosa); font-weight: 300; font-size: 0.7rem;">TAP TO OPEN</p>
     </div>
 
     <div id="main-content">
-        <div class="floral-decor flower-tl flower-fixed"></div>
-        <div class="floral-decor flower-br flower-fixed"></div>
         
+        <img src="https://static.vecteezy.com/system/resources/previews/010/834/170/original/watercolor-rose-pink-flower-free-png.png" class="floral-bg-fixed bg-f1" alt="Flor de fondo">
+        <img src="https://static.vecteezy.com/system/resources/previews/010/834/170/original/watercolor-rose-pink-flower-free-png.png" class="floral-bg-fixed bg-f2" alt="Flor de fondo">
+
         <section class="hero" style="padding:0;">
             <img src="http://googleusercontent.com/image_collection/image_retrieval/16815432218834689453" class="hero-img" alt="Teresa">
             <div class="hero-text">
@@ -201,20 +208,20 @@
 
         <section class="reveal">
             <div class="divider"></div>
-            <div class="location-card" style="background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('assets/salon.jpg');">
+            <div class="loc-box" style="background-image: url('assets/salon.jpg');">
                 <span class="info-sub">Recepción</span>
                 <h2 class="info-title">Hacienda El Mestizo</h2>
-                <p style="font-weight: 400; margin-bottom: 30px; color: var(--texto);">Vialidad Los Nogales 1505, Chihuahua, Chih.</p>
-                <a href="https://maps.app.goo.gl/gb4QktcoosKRjbVg8?g_st=ic" target="_blank" class="btn-luxury">Ver Ubicación</a>
+                <p style="font-weight: 200; margin-bottom: 30px; font-size: 1.1rem;">Vialidad Los Nogales 1505, Chihuahua, Chih.</p>
+                <a href="https://maps.app.goo.gl/gb4QktcoosKRjbVg8?g_st=ic" target="_blank" class="btn-luxury" style="background: white;">Ver Ubicación</a>
             </div>
         </section>
 
         <section class="reveal">
-            <div class="location-card" style="background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('assets/iglesia.jpg');">
-                <span class="info-sub">Ceremonia Religiosa</span>
-                <h2 class="info-title" style="font-size: 2.2rem;">Parroquia del Sagrado Corazón de Jesús</h2>
-                <p style="font-weight: 400; margin-bottom: 30px; color: var(--texto);">Calle 20 de Noviembre, Av. Melchor Ocampo y, Pacífico,<br>31030 Chihuahua, Chih.</p>
-                <a href="https://maps.app.goo.gl/M8jaPeAWDfvWsQfi6?g_st=ic" target="_blank" class="btn-luxury">Ver en Maps</a>
+            <div class="loc-box" style="background-image: url('assets/iglesia.jpg');">
+                <span class="info-sub">Ceremonia</span>
+                <h2 class="info-title">Parroquia del Sagrado Corazón de Jesús</h2>
+                <p style="font-weight: 200; margin-bottom: 30px; font-size: 1.1rem;">Calle 20 de Noviembre, Av. Melchor Ocampo y, Pacífico, 31030 Chihuahua, Chih.</p>
+                <a href="https://maps.app.goo.gl/M8jaPeAWDfvWsQfi6?g_st=ic" target="_blank" class="btn-luxury" style="background: white;">Ver Ubicación</a>
             </div>
             <div class="divider"></div>
         </section>
@@ -290,6 +297,7 @@
         const envelope = document.getElementById('envelope');
         envelope.addEventListener('click', () => {
             envelope.classList.add('open-env');
+            document.getElementById('envCard').classList.add('env-card'); // Activa transformación
             setTimeout(() => {
                 document.getElementById('envelope-screen').style.transform = 'translateY(-100%)';
                 setTimeout(() => {
