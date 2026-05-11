@@ -3,263 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Teresa XV | Editorial Edition</title>
+    <title>Teresa XV | Edición Boutique</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=Inter:wght@200;300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --palo-rosa: #f4dce0;
-            --palo-rosa-claro: #fdf7f8;
-            --dorado: #c5a059;
-            --oro-grad: linear-gradient(135deg, #c5a059 0%, #f8eac3 50%, #c5a059 100%);
-            --texto: #2c3e50;
-            --serif: 'Playfair Display', serif;
-            --sans: 'Montserrat', sans-serif;
-            --script: 'Great Vibes', cursive;
+            --palo-rosa: #D8A7B1;
+            --palo-rosa-claro: #F8F1F2;
+            --oro: #C5A059;
+            --texto: #333333;
+            --blanco: #FFFFFF;
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Inter', sans-serif;
+            --script: 'Pinyon Script', cursive;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
-        body { font-family: var(--sans); color: var(--texto); background-color: #fff; overflow-x: hidden; line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; overflow-x: hidden; background-color: var(--blanco); }
+        
+        body { 
+            font-family: var(--sans); 
+            color: var(--texto); 
+            overflow-x: hidden; 
+            line-height: 1.6;
+        }
 
-        /* --- BACKGROUND TEXTURE --- */
-        .main-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: var(--palo-rosa-claro); }
-        .main-bg::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); opacity: 0.5; }
-
-        /* --- LUXURY ENVELOPE --- */
+        /* --- SOBRE MINIMALISTA --- */
         #envelope-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            z-index: 10000; transition: transform 1s cubic-bezier(0.7, 0, 0.3, 1);
+            background: var(--blanco); display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 10000; transition: transform 1.4s cubic-bezier(0.85, 0, 0.15, 1);
         }
-        .env-wrapper { position: relative; width: 320px; height: 220px; cursor: pointer; transform-style: preserve-3d; transition: 0.5s; }
-        .env-body { position: absolute; bottom: 0; width: 100%; height: 100%; background: var(--palo-rosa); border-radius: 4px; z-index: 2; border: 1px solid var(--dorado); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .env-flap { position: absolute; top: 0; left: 0; width: 100%; height: 120px; background: #e2b7bd; clip-path: polygon(0 0, 50% 100%, 100% 0); transform-origin: top; transition: transform 0.6s ease; z-index: 4; }
-        .env-card { position: absolute; bottom: 10px; left: 10px; width: 300px; height: 200px; background: #fff; display: flex; align-items: center; justify-content: center; z-index: 1; transition: transform 0.8s ease 0.4s; border: 1px solid var(--dorado); }
-        .env-card h2 { font-family: var(--script); font-size: 3.5rem; color: var(--dorado); font-weight: 400; }
-        .wax-seal { position: absolute; top: 90px; left: 50%; transform: translateX(-50%); width: 60px; height: 60px; background: var(--oro-grad); border-radius: 50%; z-index: 5; display: flex; justify-content: center; align-items: center; color: white; font-family: var(--serif); font-size: 1.8rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .env-wrapper { position: relative; width: 300px; height: 200px; cursor: pointer; perspective: 1000px; }
+        .env-body { position: absolute; bottom: 0; width: 100%; height: 100%; background: var(--palo-rosa-claro); border: 1px solid var(--palo-rosa); z-index: 2; border-radius: 2px; }
+        .env-flap { position: absolute; top: 0; left: 0; width: 100%; height: 110px; background: #EAD8DB; clip-path: polygon(0 0, 50% 100%, 100% 0); transform-origin: top; transition: transform 0.8s ease; z-index: 4; }
+        .env-letter { position: absolute; bottom: 5px; left: 5px; width: 290px; height: 190px; background: var(--blanco); border: 1px solid var(--palo-rosa); display: flex; align-items: center; justify-content: center; z-index: 1; transition: transform 0.8s ease 0.4s; }
+        .env-letter h2 { font-family: var(--script); font-size: 3rem; color: var(--palo-rosa); font-weight: 400; }
+        .wax-seal { position: absolute; top: 85px; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: var(--oro); border-radius: 50%; z-index: 5; display: flex; justify-content: center; align-items: center; color: white; font-family: var(--serif); font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .open-env .env-flap { transform: rotateX(180deg); }
-        .open-env .env-card { transform: translateY(-130px); }
+        .open-env .env-card { transform: translateY(-120px); }
         .open-env .wax-seal { opacity: 0; }
 
-        /* --- HERO SECTION: ALTO IMPACTO --- */
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding: 20px; }
-        .hero-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) grayscale(20%); z-index: -1; }
-        .hero-content { color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .hero-name { font-family: var(--script); font-size: 8rem; line-height: 0.8; background: var(--oro-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 10px 0; }
-        .hero-sub { font-family: var(--serif); font-size: 1.2rem; letter-spacing: 8px; text-transform: uppercase; }
+        /* --- HERO: IMPACTO EDITORIAL --- */
+        #main-content { display: none; opacity: 0; transition: opacity 2s ease; }
+        .hero { 
+            height: 100vh; width: 100%; position: relative; 
+            display: flex; align-items: center; justify-content: center; 
+            background: #000; overflow: hidden;
+        }
+        .hero-img { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            object-fit: cover; opacity: 0.7; filter: contrast(1.1);
+        }
+        .hero-text { 
+            position: relative; z-index: 2; text-align: center; color: var(--blanco);
+            width: 100%; padding: 0 20px;
+        }
+        .hero-text h3 { font-family: var(--sans); font-weight: 200; letter-spacing: 12px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 10px; }
+        .hero-text h1 { font-family: var(--serif); font-size: clamp(4rem, 15vw, 9rem); font-weight: 300; line-height: 1; }
+        .hero-text span { font-family: var(--script); font-size: clamp(2rem, 8vw, 4rem); color: var(--palo-rosa); display: block; margin-top: -10px; }
 
-        /* --- SECCIONES FLUIDAS (SIN RECUADROS) --- */
-        section { padding: 100px 5%; max-width: 1100px; margin: 0 auto; text-align: center; }
-        .reveal { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        /* --- SECCIONES FLUIDAS --- */
+        section { padding: 120px 8%; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1.5s cubic-bezier(0.2, 1, 0.3, 1); will-change: transform, opacity; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .phrase-wrap { margin-bottom: 100px; }
-        .editorial-text { font-family: var(--serif); font-size: 2.2rem; font-style: italic; line-height: 1.4; color: var(--texto); }
-        .separator { width: 1px; height: 100px; background: var(--dorado); margin: 50px auto; }
+        .phrase { font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2.5rem); font-style: italic; line-height: 1.5; color: var(--texto); font-weight: 300; }
+        .divider { width: 1px; height: 100px; background: var(--palo-rosa); margin: 60px auto; }
 
-        /* --- COUNTDOWN MINIMALISTA --- */
-        .countdown { display: flex; justify-content: center; gap: 30px; margin: 50px 0; flex-wrap: wrap; }
+        /* --- COUNTDOWN REFINADO --- */
+        .countdown { display: flex; justify-content: center; gap: 40px; margin: 60px 0; }
         .c-item { text-align: center; }
-        .c-item span { display: block; font-size: 5rem; font-family: var(--serif); color: var(--dorado); line-height: 1; font-weight: 700; }
-        .c-item label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--texto); opacity: 0.6; }
+        .c-item span { display: block; font-size: clamp(2.5rem, 8vw, 4.5rem); font-family: var(--serif); color: var(--oro); font-weight: 300; line-height: 1; }
+        .c-item label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; color: var(--texto); opacity: 0.5; margin-top: 10px; display: block; }
 
-        /* --- BOTONES PREMIUM --- */
+        /* --- BOTONES MINIMALISTAS --- */
         .btn-luxury {
-            display: inline-flex; align-items: center; gap: 12px;
-            padding: 20px 50px; background: var(--oro-grad); color: #fff;
-            text-decoration: none; border-radius: 0; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 3px; font-size: 0.85rem; transition: 0.4s; border: none; cursor: pointer;
-            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+            display: inline-block; padding: 18px 50px; 
+            border: 1px solid var(--oro); color: var(--texto);
+            text-decoration: none; font-size: 0.75rem; letter-spacing: 4px;
+            text-transform: uppercase; transition: 0.5s ease;
+            background: transparent; margin: 10px;
         }
-        .btn-luxury:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(197, 160, 89, 0.4); }
-        .btn-black { background: #1a1a1a; }
+        .btn-luxury:hover { background: var(--oro); color: var(--blanco); }
+        .btn-whatsapp { background: #25D366; border-color: #25D366; color: white; }
 
-        /* --- INFO SECTIONS --- */
-        .info-grid { display: grid; grid-template-columns: 1fr; gap: 80px; margin-top: 80px; }
-        .info-title { font-family: var(--serif); font-size: 3rem; font-style: italic; color: var(--dorado); margin-bottom: 20px; }
-        .info-icon { font-size: 2.5rem; color: var(--palo-rosa); margin-bottom: 20px; }
+        /* --- UBICACIÓN & INFO --- */
+        .info-title { font-family: var(--serif); font-size: 2.2rem; color: var(--oro); margin-bottom: 10px; font-weight: 400; }
+        .info-sub { font-family: var(--sans); font-weight: 300; letter-spacing: 4px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 30px; display: block; }
 
-        /* --- DRESS CODE ELEGANTE --- */
-        .dress-code-wrap { border-top: 1px solid var(--palo-rosa); border-bottom: 1px solid var(--palo-rosa); padding: 60px 0; }
-        .dress-rules { list-style: none; margin-top: 20px; font-size: 1.2rem; }
-        .dress-rules li { margin: 10px 0; color: #d63031; font-weight: 600; }
+        /* --- DRESS CODE: SIN ROJO NI TACHES --- */
+        .dress-code { padding: 80px 0; }
+        .dress-item { font-size: 1.1rem; color: var(--texto); font-weight: 300; margin: 15px 0; display: flex; align-items: center; justify-content: center; gap: 15px; }
+        .dress-item i { color: var(--oro); font-size: 0.8rem; }
 
-        /* --- FORMULARIOS (LÍNEAS, NO CAJAS) --- */
-        .form-editorial { max-width: 600px; margin: 0 auto; text-align: left; }
-        .input-group { margin-bottom: 40px; position: relative; }
-        .input-group label { display: block; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; color: var(--dorado); }
+        /* --- FORMULARIOS INVISIBLES (LÍNEAS) --- */
+        .form-wrap { max-width: 500px; margin: 60px auto 0; text-align: left; }
+        .input-group { margin-bottom: 35px; }
+        .input-group label { display: block; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--oro); margin-bottom: 10px; font-weight: 600; }
         input, select, textarea {
-            width: 100%; border: none; border-bottom: 1px solid #ddd; padding: 15px 0;
-            background: transparent; font-family: var(--sans); font-size: 1.1rem; outline: none; transition: 0.3s;
+            width: 100%; border: none; border-bottom: 1px solid #E0E0E0; padding: 12px 0;
+            font-family: var(--sans); font-size: 1rem; background: transparent; outline: none; transition: 0.3s;
+            border-radius: 0;
         }
-        input:focus, select:focus { border-bottom: 1px solid var(--dorado); }
+        input:focus { border-bottom-color: var(--oro); }
 
         /* --- MURO DE DESEOS --- */
-        .wish-item { padding: 30px 0; border-bottom: 1px solid rgba(197,160,89,0.1); text-align: left; }
-        .wish-item h4 { font-family: var(--serif); color: var(--dorado); font-size: 1.4rem; font-style: italic; }
-        .wish-item p { font-size: 1rem; color: var(--texto); margin-top: 10px; font-weight: 300; }
+        .wish-post { margin-top: 40px; text-align: left; padding-bottom: 20px; border-bottom: 1px solid #F0F0F0; }
+        .wish-post strong { font-family: var(--serif); font-size: 1.2rem; color: var(--oro); font-weight: 400; display: block; margin-bottom: 5px; }
+        .wish-post p { font-weight: 300; font-size: 0.95rem; font-style: italic; color: var(--texto); }
 
-        /* --- MÓVIL OPTIMIZACIÓN --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero-name { font-size: 4.5rem; }
-            .editorial-text { font-size: 1.5rem; }
-            .c-item span { font-size: 3rem; }
-            .info-title { font-size: 2.2rem; }
-            .hero { height: 80vh; }
+            section { padding: 80px 20px; }
+            .countdown { gap: 20px; }
+            .hero { height: 90vh; }
         }
 
-        .music-btn { position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; border-radius: 50%; background: #fff; border: 1px solid var(--dorado); color: var(--dorado); z-index: 999; cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .music-toggle { position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px; border-radius: 50%; background: var(--blanco); border: 1px solid var(--palo-rosa); color: var(--palo-rosa); z-index: 1000; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body>
 
-    <div class="main-bg"></div>
-
     <audio id="bgMusic" loop>
         <source src="assets/music.mp3" type="audio/mpeg">
     </audio>
-    <button id="musicToggleBtn" class="music-btn" onclick="toggleMusic()">
-        <i class="fa-solid fa-pause"></i>
-    </button>
+    <button id="musicToggleBtn" class="music-toggle" onclick="toggleMusic()"><i class="fa-solid fa-pause"></i></button>
 
     <div id="envelope-screen">
         <div class="env-wrapper" id="envelope">
-            <div class="env-card">
-                <p style="position:absolute; top:20px; font-size:0.6rem; letter-spacing:4px; opacity:0.6;">DERECHOS RESERVADOS</p>
+            <div class="env-letter">
+                <p style="position:absolute; top:15px; font-size:0.5rem; letter-spacing:3px; opacity:0.5;">INVYTIA EXCLUSIVE</p>
                 <h2>Teresa</h2>
             </div>
             <div class="env-flap"></div>
             <div class="env-body"></div>
             <div class="wax-seal">T</div>
         </div>
-        <p style="margin-top: 50px; letter-spacing: 5px; color: var(--dorado); font-weight: 600; font-size: 0.8rem;">TOCA PARA ABRIR</p>
+        <p style="margin-top: 40px; letter-spacing: 6px; color: var(--palo-rosa); font-weight: 300; font-size: 0.7rem;">TAP TO OPEN</p>
     </div>
 
-    <div id="main-content" style="display:none; opacity:0;">
+    <div id="main-content">
         
-        <section class="hero">
+        <section class="hero" style="padding:0;">
             <img src="http://googleusercontent.com/image_collection/image_retrieval/16815432218834689453" class="hero-img" alt="Teresa">
-            <div class="hero-content reveal">
-                <p class="hero-sub">Bienvenidos a mis</p>
-                <h1 class="hero-name">Teresa XV</h1>
-                <p class="hero-sub">28 . 08 . 2026</p>
+            <div class="hero-text">
+                <h3>Mis XV Años</h3>
+                <h1>Teresa</h1>
+                <span>28 . 08 . 2026</span>
             </div>
         </section>
 
-        <section class="reveal phrase-wrap">
-            <div class="separator"></div>
-            <p class="editorial-text">"Hay momentos en la vida que representan un antes y un después. El comienzo y el final de una etapa, y lo que los hace realmente especiales, son las personas con las que se comparten. Quiero que tú seas una de ellas. Te invito a mis quince primaveras."</p>
-            <div class="separator"></div>
+        <section class="reveal">
+            <p class="phrase">"Hay momentos en la vida que representan un antes y un después. El comienzo y el final de una etapa, y lo que los hace realmente especiales, son las personas con las que se comparten."</p>
+            <div class="divider"></div>
+            <p style="font-weight: 300; letter-spacing: 2px;">Te espero para celebrar mis quince primaveras.</p>
         </section>
 
         <section class="reveal">
-            <h3 style="margin-bottom: 20px;">La espera termina</h3>
+            <span class="info-sub">La cuenta regresiva</span>
             <div class="countdown">
                 <div class="c-item"><span id="days">00</span><label>Días</label></div>
-                <div class="c-item"><span id="hours">00</span><label>Hrs</label></div>
-                <div class="c-item"><span id="minutes">00</span><label>Min</label></div>
-                <div class="c-item"><span id="seconds">00</span><label>Seg</label></div>
+                <div class="c-item"><span id="hours">00</span><label>Horas</label></div>
+                <div class="c-item"><span id="minutes">00</span><label>Minutos</label></div>
             </div>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+Años+Teresa&dates=20260828T230000Z/20260829T050000Z&details=Te+espero+en+Hacienda+El+Mestizo&location=Hacienda+El+Mestizo" target="_blank" class="btn-luxury btn-black">
-                <i class="fa-solid fa-calendar-plus"></i> Añadir a Calendario
-            </a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+Años+Teresa&dates=20260828T230000Z/20260829T050000Z&location=Hacienda+El+Mestizo" target="_blank" class="btn-luxury">Save the Date</a>
         </section>
 
         <section class="reveal">
-            <h3>Con la bendición de mis padres</h3>
-            <h2 class="info-title" style="font-size: 2.5rem; line-height: 1.2;">Myrna Rosario Rodríguez Frías<br>&<br>Sócrates Omar Ayala Alarcón</h2>
+            <span class="info-sub">Con la bendición de mis padres</span>
+            <h2 class="info-title" style="line-height: 1.2;">Myrna Rosario Rodríguez Frías<br>Sócrates Omar Ayala Alarcón</h2>
         </section>
 
         <section class="reveal">
-            <div class="info-grid">
-                <div>
-                    <i class="fa-solid fa-champagne-glasses info-icon"></i>
-                    <h3>Recepción</h3>
-                    <h2 class="info-title">Hacienda El Mestizo</h2>
-                    <p style="margin-bottom: 30px;">Vialidad Los Nogales 1505, Chihuahua, Chih.</p>
-                    <a href="https://maps.app.goo.gl/gb4QktcoosKRjbVg8?g_st=ic" target="_blank" class="btn-luxury">Ver Ubicación</a>
-                </div>
-                <div style="opacity: 0.6;">
-                    <i class="fa-solid fa-church info-icon"></i>
-                    <h3>Ceremonia Religiosa</h3>
-                    <h2 class="info-title" style="font-size: 1.8rem;">Info por confirmar</h2>
-                </div>
-            </div>
+            <div class="divider"></div>
+            <span class="info-sub">Recepción</span>
+            <h2 class="info-title">Hacienda El Mestizo</h2>
+            <p style="font-weight: 200; margin-bottom: 30px;">Vialidad Los Nogales 1505, Chihuahua, Chih.</p>
+            <a href="https://maps.app.goo.gl/gb4QktcoosKRjbVg8?g_st=ic" target="_blank" class="btn-luxury">Ver Ubicación</a>
         </section>
 
         <section class="reveal">
-            <h1 style="font-family: var(--serif); font-size: 3rem; letter-spacing: 10px;">#TEREXV</h1>
-            <p style="margin: 30px 0;">Comparte tus mejores momentos usando nuestro hashtag.</p>
-            <div class="separator"></div>
-            <h3>¿Me ayudas con la playlist?</h3>
-            <p style="margin-bottom: 30px;">¡Dinos qué canción no puede faltar en la fiesta!</p>
-            <a href="#" class="btn-luxury" style="background:#1DB954; box-shadow: 0 10px 30px rgba(29, 185, 84, 0.3);">
-                <i class="fa-solid fa-music"></i> AGREGAR CANCIÓN +
-            </a>
+            <span class="info-sub">Ceremonia</span>
+            <h2 class="info-title" style="font-style: italic; opacity: 0.6;">Info por confirmar</h2>
+            <div class="divider"></div>
         </section>
 
         <section class="reveal">
-            <div class="dress-code-wrap">
-                <h3>Código de Vestimenta</h3>
-                <h2 class="info-title" style="letter-spacing: 10px; font-style: normal;">FORMAL</h2>
-                <ul class="dress-rules">
-                    <li>- Evitar colores Rosas y Dorados -</li>
-                    <li>- Estrictamente No Tenis -</li>
-                </ul>
+            <span class="info-sub">Dress Code</span>
+            <h2 class="info-title" style="font-style: normal; letter-spacing: 10px;">FORMAL</h2>
+            <div class="dress-code">
+                <p class="dress-item"><i class="fa-solid fa-crown"></i> Sugerimos evitar colores Rosas y Dorados</p>
+                <p class="dress-item"><i class="fa-solid fa-crown"></i> Agradecemos no utilizar calzado deportivo (Tenis)</p>
             </div>
         </section>
 
         <section class="reveal">
-            <i class="fa-solid fa-envelope-open-text info-icon"></i>
-            <h2>Lluvia de Sobres</h2>
-            <p class="phrase" style="font-size: 1.3rem;">"Tu presencia es mi mejor regalo, pero si deseas obsequiarme algo especial, agradecería tu detalle en efectivo a través de nuestro buzón de sobres."</p>
+            <h1 style="font-family: var(--serif); font-weight: 300; letter-spacing: 15px; font-size: 3rem; color: var(--palo-rosa);">#TEREXV</h1>
+            <p style="margin-top: 20px; font-weight: 300;">Comparte tus mejores momentos</p>
+            <a href="#" class="btn-luxury" style="margin-top: 30px;">Playlist del Evento</a>
         </section>
 
-        <section class="reveal" id="rsvp">
-            <h2>¿Me acompañas?</h2>
-            <p style="margin-bottom: 40px;">Por favor confirma tu asistencia antes del 15 de agosto.</p>
-            <div class="form-editorial">
+        <section class="reveal">
+            <span class="info-sub">Mesa de Regalos</span>
+            <p class="phrase" style="font-size: 1.4rem;">"Tu presencia es mi mejor regalo, pero si deseas obsequiarme algo especial, agradecería tu detalle en efectivo a través de nuestro buzón de sobres."</p>
+            <p style="margin-top: 30px; letter-spacing: 5px; color: var(--oro); font-weight: 600;">LLUVIA DE SOBRES</p>
+        </section>
+
+        <section class="reveal">
+            <h2 class="info-title">¿Me acompañas?</h2>
+            <p style="font-weight: 200; margin-bottom: 40px;">Por favor confirma tu asistencia antes del 15 de agosto.</p>
+            <div class="form-wrap">
                 <div class="input-group">
-                    <label>Nombre Completo</label>
-                    <input type="text" id="guestName" placeholder="Escribe aquí...">
+                    <label>Nombre</label>
+                    <input type="text" id="guestName">
                 </div>
                 <div class="input-group">
-                    <label>Número de Invitados</label>
+                    <label>Invitados</label>
                     <select id="guestCount">
                         <option value="1">1 Persona</option>
                         <option value="2">2 Personas</option>
                         <option value="3">3 Personas</option>
-                        <option value="4">4 Personas</option>
                     </select>
                 </div>
                 <div class="input-group">
-                    <label>Confirmación</label>
+                    <label>Asistencia</label>
                     <select id="attendance">
                         <option value="Sí asistiré">Sí asistiré con gusto</option>
                         <option value="No podré asistir">No podré asistir</option>
                     </select>
                 </div>
-                <button class="btn-luxury btn-black" style="width:100%; justify-content: center; background:#25D366; border:none;" onclick="sendWhatsApp()">
-                    Confirmar vía WhatsApp
-                </button>
+                <button class="btn-luxury btn-whatsapp" style="width: 100%; margin: 0; cursor: pointer;" onclick="sendWhatsApp()">Confirmar Asistencia</button>
             </div>
         </section>
 
-        <section class="reveal" style="padding-bottom: 150px;">
-            <h2>Muro de Deseos</h2>
-            <div class="form-editorial">
+        <section class="reveal" style="padding-bottom: 120px;">
+            <h2 class="info-title">Muro de Deseos</h2>
+            <div class="form-wrap">
                 <div class="input-group">
-                    <label>Tu Nombre</label>
+                    <label>Nombre</label>
                     <input type="text" id="wishName">
                 </div>
                 <div class="input-group">
                     <label>Mensaje</label>
                     <textarea id="wishMessage"></textarea>
                 </div>
-                <button class="btn-luxury" style="width:100%; justify-content: center;" onclick="publishWish()">Publicar Deseo</button>
+                <button class="btn-luxury" style="width: 100%; margin: 0; cursor: pointer;" onclick="publishWish()">Publicar Deseo</button>
                 <div id="messagesDisplay" style="margin-top: 40px;"></div>
             </div>
         </section>
@@ -267,7 +259,7 @@
     </div>
 
     <script>
-        // --- CONTROL DE APERTURA ---
+        // --- CONTROL APERTURA ---
         const envelope = document.getElementById('envelope');
         envelope.addEventListener('click', () => {
             envelope.classList.add('open-env');
@@ -277,13 +269,10 @@
                     document.getElementById('envelope-screen').style.display = 'none';
                     const main = document.getElementById('main-content');
                     main.style.display = 'block';
-                    // Reflow hack
                     void main.offsetWidth;
                     main.style.opacity = '1';
-                    
                     reveal();
-                    const music = document.getElementById('bgMusic');
-                    music.play().catch(()=>console.log('Autoplay bloqueado'));
+                    document.getElementById('bgMusic').play().catch(() => {});
                     document.getElementById('musicToggleBtn').style.display = 'flex';
                 }, 1000);
             }, 1200);
@@ -305,7 +294,6 @@
                 document.getElementById("days").innerText = Math.floor(dist / 86400000).toString().padStart(2, '0');
                 document.getElementById("hours").innerText = Math.floor((dist % 86400000) / 3600000).toString().padStart(2, '0');
                 document.getElementById("minutes").innerText = Math.floor((dist % 3600000) / 60000).toString().padStart(2, '0');
-                document.getElementById("seconds").innerText = Math.floor((dist % 60000) / 1000).toString().padStart(2, '0');
             }
         }, 1000);
 
@@ -314,10 +302,9 @@
             const name = document.getElementById('guestName').value;
             const count = document.getElementById('guestCount').value;
             const attend = document.getElementById('attendance').value;
-            const phone = "526863068136";
             if(!name) return alert("Escribe tu nombre");
-            const text = `¡Hola Teresa! Soy ${name}. Confirmo que ${attend}. Seremos ${count} personas.`;
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+            const text = `Hola Teresa! Soy ${name}. Confirmo que ${attend}. Seremos ${count} personas.`;
+            window.open(`https://wa.me/526863068136?text=${encodeURIComponent(text)}`, '_blank');
         }
 
         // --- MURO ---
@@ -326,20 +313,22 @@
             const msg = document.getElementById('wishMessage').value;
             if(!name || !msg) return alert("Completa los campos");
             const div = document.createElement('div');
-            div.className = 'wish-item reveal active';
-            div.innerHTML = `<h4>${name}</h4><p>"${msg}"</p>`;
+            div.className = 'wish-post';
+            div.innerHTML = `<strong>${name}</strong><p>"${msg}"</p>`;
             document.getElementById('messagesDisplay').prepend(div);
             document.getElementById('wishName').value = "";
             document.getElementById('wishMessage').value = "";
         }
 
-        // --- REVEAL ---
+        // --- REVEAL LÍQUIDO ---
         function reveal() {
             const reveals = document.querySelectorAll(".reveal");
             for (let i = 0; i < reveals.length; i++) {
                 const windowHeight = window.innerHeight;
                 const elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 80) { reveals[i].classList.add("active"); }
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
             }
         }
         window.addEventListener("scroll", reveal);
