@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Teresa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --blanco: #ffffff;
+            --rosa-palo: #f4e1e6;
+            --dorado: #c5a059;
+            --texto-oscuro: #2c3e50;
+            --texto-claro: #5a6c7d;
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-texto: 'Montserrat', sans-serif;
+            --fuente-nombres: 'Great Vibes', cursive;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--fuente-texto);
+            color: var(--texto-oscuro);
+            background: linear-gradient(-45deg, #ffffff, var(--rosa-palo), #ffffff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- ESTILO DEL SOBRE --- */
+        #envelope-screen { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; transition: opacity 1.5s ease; }
+        .envelope-wrapper { position: relative; width: 300px; height: 200px; cursor: pointer; perspective: 1000px; animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        .envelope-body { position: absolute; bottom: 0; width: 100%; height: 100%; background: var(--dorado); border-radius: 10px; z-index: 2; }
+        .envelope-flap { position: absolute; top: 0; left: 0; width: 100%; height: 110px; background: #b08d4a; clip-path: polygon(0 0, 50% 100%, 100% 0); transform-origin: top; transition: transform 0.6s ease; z-index: 4; }
+        .envelope-letter { position: absolute; bottom: 5px; left: 5px; width: 290px; height: 190px; background: white; border-radius: 5px; display: flex; justify-content: center; align-items: center; z-index: 1; transition: transform 0.8s ease 0.5s; border: 1px solid var(--dorado); }
+        .envelope-letter h2 { font-family: var(--fuente-nombres); font-size: 3rem; color: var(--dorado); }
+        .wax-seal { position: absolute; top: 90px; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: #c5a059; border-radius: 50%; z-index: 5; display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.2); font-family: var(--fuente-titulos); }
+        .open-envelope .envelope-flap { transform: rotateX(180deg); }
+        .open-envelope .envelope-letter { transform: translateY(-120px); }
+
+        /* --- CONTENIDO --- */
+        #main-content { display: none; opacity: 0; transition: opacity 2s ease; }
+        section { padding: 80px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
+        
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.8); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        
+        h1 { font-family: var(--fuente-nombres); font-size: 5rem; color: var(--dorado); }
+        h2 { font-family: var(--fuente-titulos); font-size: 2.2rem; color: var(--texto-oscuro); font-style: italic; margin-bottom: 20px; }
+
+        .btn { display: inline-block; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; cursor: pointer; transition: 0.3s; border: none; margin: 10px; color: white; background: var(--dorado); }
+        .btn-whatsapp { background: #25D366; }
+        .btn-spotify { background: #1DB954; }
+
+        /* --- CUENTA REGRESIVA --- */
+        .timer-container { display: flex; justify-content: center; gap: 15px; margin: 30px 0; }
+        .time-box { padding: 15px; min-width: 80px; text-align: center; }
+        .time-box span { display: block; font-size: 2.5rem; color: var(--dorado); font-family: var(--fuente-titulos); }
+
+        /* --- PARTICULAS --- */
+        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="assets/musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="envelope-screen">
+        <div class="envelope-wrapper" id="envelope">
+            <div class="envelope-letter"><h2>Teresa</h2></div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-body"></div>
+            <div class="wax-seal">T</div>
+        </div>
+        <p style="margin-top: 30px; letter-spacing: 2px; color: var(--dorado);">TOCA PARA ABRIR</p>
+    </div>
+
+    <div id="particles-js"></div>
+
+    <div id="main-content">
+        <section class="reveal">
+            <div class="glass-card">
+                <p style="letter-spacing: 5px; color: var(--dorado); font-weight: 600;">MIS XV AÑOS</p>
+                <h1>Teresa</h1>
+                <p style="font-style: italic; margin-top: 20px; color: var(--texto-claro); line-height: 1.6;">
+                    "Hay momentos en la vida que representan un antes y un después. El comienzo y el final de una etapa, y lo que los hace realmente especiales, son las personas con las que se comparten. Quiero que tú seas una de ellas. Te invito a mis quince primaveras."
+                </p>
+                <p style="font-weight: 600; margin-top: 20px; letter-spacing: 2px;">28 DE AGOSTO DE 2026</p>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <h2>Faltan</h2>
+            <div class="timer-container">
+                <div class="time-box glass-card"><span id="days">00</span><p>Días</p></div>
+                <div class="time-box glass-card"><span id="hours">00</span><p>Hrs</p></div>
+                <div class="time-box glass-card"><span id="minutes">00</span><p>Min</p></div>
+                <div class="time-box glass-card"><span id="seconds">00</span><p>Seg</p></div>
+            </div>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+A%C3%B1os+Teresa&dates=20260828T230000Z/20260829T050000Z&details=Celebraci%C3%B3n+de+XV+A%C3%B1os+de+Teresa&location=Hacienda+El+Mestizo" target="_blank" class="btn" style="background: #333;">
+                <i class="fa-solid fa-calendar-plus"></i> Añadir a Calendario
+            </a>
+        </section>
+
+        <section class="reveal">
+            <div class="glass-card">
+                <p style="color: var(--dorado); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 10px;">CON LA BENDICIÓN DE MIS PADRES</p>
+                <p style="font-family: var(--fuente-titulos); font-size: 1.5rem;">Myrna Rosario Rodríguez Frías<br>&<br>Sócrates Omar Ayala Alarcón</p>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <h2>Ubicación</h2>
+            <div class="glass-card">
+                <i class="fa-solid fa-hotel" style="font-size: 2.5rem; color: var(--dorado); margin-bottom: 15px;"></i>
+                <h3>Recepción: Hacienda El Mestizo</h3>
+                <p style="margin-bottom: 20px;">Chihuahua, Chih.</p>
+                <a href="https://maps.app.goo.gl/gb4QktcoosKRjbVg8?g_st=ic" target="_blank" class="btn">
+                    <i class="fa-solid fa-map-location-dot"></i> Abrir en Maps
+                </a>
+            </div>
+            <div class="glass-card" style="border: 1px dashed var(--dorado);">
+                <i class="fa-solid fa-church" style="font-size: 2rem; color: var(--dorado); margin-bottom: 10px;"></i>
+                <h3>Ceremonia Religiosa</h3>
+                <p style="font-style: italic;">"Info por confirmar"</p>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <div style="font-size: 2.5rem; color: var(--dorado); font-weight: bold; margin-bottom: 10px;">
+                <i class="fa-brands fa-instagram"></i> #TEREXV
+            </div>
+            <p>Comparte tus fotos usando nuestro hashtag oficial</p>
+        </section>
+
+        <section class="reveal">
+            <div class="glass-card">
+                <h3>¿Me ayudas con la playlist?</h3>
+                <p style="margin: 15px 0;">¡Dinos qué canciones no pueden faltar!</p>
+                <a href="#" class="btn btn-spotify">AGREGAR UNA CANCIÓN +</a>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <h2>Código de Vestimenta</h2>
+            <div class="glass-card">
+                <i class="fa-solid fa-user-tie" style="font-size: 2.5rem; color: var(--dorado); margin-bottom: 15px;"></i>
+                <h3 style="letter-spacing: 2px;">FORMAL</h3>
+                <p style="margin-top: 15px; font-weight: 600; color: #d63031;">Evitar colores Rosas y Dorados</p>
+                <p style="font-weight: 600; color: #d63031;">No Tenis</p>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <div class="glass-card">
+                <i class="fa-solid fa-gift" style="font-size: 2.5rem; color: var(--dorado); margin-bottom: 15px;"></i>
+                <h2>Sugerencia de Regalo</h2>
+                <p style="font-style: italic; line-height: 1.6;">
+                    "Tu presencia es mi mejor regalo, pero si deseas obsequiarme algo especial, agradecería tu detalle en efectivo a través de nuestro buzón de sobres."
+                </p>
+                <p style="margin-top: 20px; font-weight: 700; color: var(--dorado);">LLUVIA DE SOBRES</p>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <div class="glass-card">
+                <h2>¿Me acompañas?</h2>
+                <p style="margin-bottom: 25px;">Confirma tu asistencia vía WhatsApp</p>
+                <a href="https://wa.me/526863068136" target="_blank" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> CONFIRMAR ASISTENCIA
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const envelope = document.getElementById('envelope');
+        envelope.addEventListener('click', () => {
+            envelope.classList.add('open-envelope');
+            setTimeout(() => {
+                document.getElementById('envelope-screen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('envelope-screen').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                    setTimeout(() => { 
+                        document.getElementById('main-content').style.opacity = '1'; 
+                        reveal();
+                        createParticles();
+                        document.getElementById('bgMusic').play();
+                    }, 50);
+                }, 1500);
+            }, 1000);
+        });
+
+        function reveal() {
+            document.querySelectorAll(".reveal").forEach(r => {
+                if (r.getBoundingClientRect().top < window.innerHeight - 50) r.classList.add("active");
+            });
+        }
+        window.addEventListener("scroll", reveal);
+
+        const targetDate = new Date("Aug 28, 2026 18:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const dist = targetDate - now;
+            if (dist > 0) {
+                document.getElementById("days").innerText = Math.floor(dist / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((dist % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
+        }, 1000);
+
+        function createParticles() {
+            const container = document.getElementById('particles-js');
+            for (let i = 0; i < 30; i++) {
+                let p = document.createElement('div');
+                p.style.cssText = `position:absolute; width:4px; height:4px; background:rgba(197,160,89,0.3); border-radius:50%; bottom:-10px; left:${Math.random()*100}vw; animation: floatUp ${Math.random()*5+5}s linear infinite;`;
+                container.appendChild(p);
+            }
+        }
+        const s = document.createElement('style');
+        s.innerHTML = `@keyframes floatUp { 100% { transform: translateY(-100vh); opacity: 0; } }`;
+        document.head.appendChild(s);
+    </script>
+</body>
+</html>
