@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Teresa XV | Edición Boutique</title>
+    <title>María Teresa XV | Edición Boutique</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=Inter:wght@200;300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
         .env-body { position: absolute; bottom: 0; width: 100%; height: 100%; background: var(--palo-rosa-claro); border: 1px solid var(--palo-rosa); z-index: 2; border-radius: 2px; }
         .env-flap { position: absolute; top: 0; left: 0; width: 100%; height: 110px; background: #EAD8DB; clip-path: polygon(0 0, 50% 100%, 100% 0); transform-origin: top; transition: transform 0.8s ease; z-index: 4; }
         .env-letter { position: absolute; bottom: 5px; left: 5px; width: 290px; height: 190px; background: var(--blanco); border: 1px solid var(--palo-rosa); display: flex; align-items: center; justify-content: center; z-index: 1; transition: transform 0.8s ease 0.4s; }
-        .env-letter h2 { font-family: var(--script); font-size: 3rem; color: var(--palo-rosa); font-weight: 400; }
+        .env-letter h2 { font-family: var(--script); font-size: 2.5rem; color: var(--palo-rosa); font-weight: 400; }
         .wax-seal { position: absolute; top: 85px; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: var(--oro); border-radius: 50%; z-index: 5; display: flex; justify-content: center; align-items: center; color: white; font-family: var(--serif); font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .open-env .env-flap { transform: rotateX(180deg); }
         .open-env .env-card { transform: translateY(-120px); }
@@ -71,7 +71,7 @@
             width: 100%; padding: 0 20px;
         }
         .hero-text h3 { font-family: var(--sans); font-weight: 200; letter-spacing: 12px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 10px; }
-        .hero-text h1 { font-family: var(--serif); font-size: clamp(4rem, 15vw, 9rem); font-weight: 300; line-height: 1; }
+        .hero-text h1 { font-family: var(--serif); font-size: clamp(3rem, 12vw, 8rem); font-weight: 300; line-height: 1; }
         .hero-text span { font-family: var(--script); font-size: clamp(2rem, 8vw, 4rem); color: var(--palo-rosa); display: block; margin-top: -10px; }
 
         /* --- SECCIONES FLUIDAS --- */
@@ -82,7 +82,7 @@
         .phrase { font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2.5rem); font-style: italic; line-height: 1.5; color: var(--texto); font-weight: 300; }
         .divider { width: 1px; height: 100px; background: var(--palo-rosa); margin: 60px auto; }
 
-        /* --- CAJAS DE UBICACIÓN AÑADIDAS --- */
+        /* --- CAJAS DE UBICACIÓN --- */
         .loc-box {
             position: relative; padding: 60px 20px; margin: 40px auto; max-width: 800px;
             background-size: cover; background-position: center; border-radius: 8px;
@@ -90,10 +90,18 @@
         }
         .loc-box::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+            background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
             z-index: 1;
         }
         .loc-box > * { position: relative; z-index: 2; }
+
+        /* --- ITINERARIO AÑADIDO --- */
+        .itinerary { display: flex; flex-direction: column; gap: 30px; max-width: 400px; margin: 50px auto 0; position: relative; }
+        .itinerary::before { content: ''; position: absolute; top: 0; bottom: 0; left: 24px; width: 1px; background: #EAD8DB; z-index: 0; }
+        .itinerary-item { display: flex; align-items: center; gap: 25px; text-align: left; position: relative; z-index: 1; }
+        .itinerary-icon { width: 50px; height: 50px; border-radius: 50%; background: var(--blanco); border: 1px solid var(--palo-rosa); display: flex; align-items: center; justify-content: center; color: var(--oro); font-size: 1.1rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .itinerary-info h4 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--texto); margin-top: 5px; }
+        .itinerary-info p { font-size: 0.75rem; letter-spacing: 3px; color: var(--oro); text-transform: uppercase; font-weight: 600; margin: 0; line-height: 1; }
 
         /* --- COUNTDOWN REFINADO --- */
         .countdown { display: flex; justify-content: center; gap: 40px; margin: 60px 0; }
@@ -116,12 +124,12 @@
         .info-title { font-family: var(--serif); font-size: 2.2rem; color: var(--oro); margin-bottom: 10px; font-weight: 400; }
         .info-sub { font-family: var(--sans); font-weight: 300; letter-spacing: 4px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 30px; display: block; }
 
-        /* --- DRESS CODE: SIN ROJO NI TACHES --- */
-        .dress-code { padding: 80px 0; }
+        /* --- DRESS CODE --- */
+        .dress-code { padding: 40px 0; }
         .dress-item { font-size: 1.1rem; color: var(--texto); font-weight: 300; margin: 15px 0; display: flex; align-items: center; justify-content: center; gap: 15px; }
         .dress-item i { color: var(--oro); font-size: 0.8rem; }
 
-        /* --- FORMULARIOS INVISIBLES (LÍNEAS) --- */
+        /* --- FORMULARIOS INVISIBLES --- */
         .form-wrap { max-width: 500px; margin: 60px auto 0; text-align: left; }
         .input-group { margin-bottom: 35px; }
         .input-group label { display: block; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--oro); margin-bottom: 10px; font-weight: 600; }
@@ -162,11 +170,11 @@
         <div class="env-wrapper" id="envelope">
             <div class="env-letter" id="envCard">
                 <p style="position:absolute; top:15px; font-size:0.5rem; letter-spacing:3px; opacity:0.5;">INVYTIA EXCLUSIVE</p>
-                <h2>Teresa</h2>
+                <h2>María Teresa</h2>
             </div>
             <div class="env-flap"></div>
             <div class="env-body"></div>
-            <div class="wax-seal">T</div>
+            <div class="wax-seal">M</div>
         </div>
         <p style="position: relative; z-index: 10; margin-top: 40px; letter-spacing: 6px; color: var(--palo-rosa); font-weight: 300; font-size: 0.7rem;">TAP TO OPEN</p>
     </div>
@@ -177,10 +185,10 @@
         <img src="assets/flor.png" class="floral-bg-fixed bg-f2" alt="Flor de fondo">
 
         <section class="hero" style="padding:0;">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/16815432218834689453" class="hero-img" alt="Teresa">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/16815432218834689453" class="hero-img" alt="María Teresa">
             <div class="hero-text">
                 <h3>Mis XV Años</h3>
-                <h1>Teresa</h1>
+                <h1>María Teresa</h1>
                 <span>28 . 08 . 2026</span>
             </div>
         </section>
@@ -198,45 +206,98 @@
                 <div class="c-item"><span id="hours">00</span><label>Horas</label></div>
                 <div class="c-item"><span id="minutes">00</span><label>Minutos</label></div>
             </div>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+Años+Teresa&dates=20260828T230000Z/20260829T050000Z&location=Hacienda+El+Mestizo" target="_blank" class="btn-luxury">Save the Date</a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+Años+María+Teresa&dates=20260828T230000Z/20260829T080000Z&location=Hacienda+El+Mestizo" target="_blank" class="btn-luxury">Save the Date</a>
         </section>
 
         <section class="reveal">
             <span class="info-sub">Con la bendición de mis padres</span>
-            <h2 class="info-title" style="line-height: 1.2;">Myrna Rosario Rodríguez Frías<br>Sócrates Omar Ayala Alarcón</h2>
+            <h2 class="info-title" style="line-height: 1.2; margin-bottom: 50px;">Myrna Rodríguez Frías<br>Omar Ayala</h2>
+            
+            <span class="info-sub">Y de mis padrinos</span>
+            <h2 class="info-title" style="line-height: 1.2; font-size: 1.8rem;">Guadalupe Adriana Chairez Núñez<br>Francisco Olivares Ortega</h2>
         </section>
 
         <section class="reveal">
             <div class="divider"></div>
-            <div class="loc-box" style="background-image: url('assets/salon.jpg');">
-                <span class="info-sub">Recepción</span>
-                <h2 class="info-title">Hacienda El Mestizo</h2>
-                <p style="font-weight: 200; margin-bottom: 30px; font-size: 1.1rem;">Vialidad Los Nogales 1505, Chihuahua, Chih.</p>
-                <a href="https://maps.app.goo.gl/gb4QktcoosKRjbVg8?g_st=ic" target="_blank" class="btn-luxury" style="background: white;">Ver Ubicación</a>
+            <span class="info-sub">Itinerario</span>
+            <h2 class="info-title">El Gran Día</h2>
+            
+            <div class="itinerary">
+                <div class="itinerary-item">
+                    <div class="itinerary-icon"><i class="fa-solid fa-church"></i></div>
+                    <div class="itinerary-info">
+                        <p>5:00 PM</p>
+                        <h4>Misa</h4>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <div class="itinerary-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                    <div class="itinerary-info">
+                        <p>9:00 PM</p>
+                        <h4>Recepción</h4>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <div class="itinerary-icon"><i class="fa-solid fa-music"></i></div>
+                    <div class="itinerary-info">
+                        <p>9:30 PM</p>
+                        <h4>Vals</h4>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <div class="itinerary-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="itinerary-info">
+                        <p>10:00 PM</p>
+                        <h4>Cena</h4>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <div class="itinerary-icon"><i class="fa-solid fa-masks-theater"></i></div>
+                    <div class="itinerary-info">
+                        <p>11:00 PM</p>
+                        <h4>Hora Loca</h4>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <div class="itinerary-icon"><i class="fa-solid fa-moon"></i></div>
+                    <div class="itinerary-info">
+                        <p>2:00 AM</p>
+                        <h4>Cierre</h4>
+                    </div>
+                </div>
             </div>
+            <div class="divider" style="margin-top: 80px;"></div>
         </section>
 
         <section class="reveal">
             <div class="loc-box" style="background-image: url('assets/iglesia.jpg');">
                 <span class="info-sub">Ceremonia</span>
-                <h2 class="info-title">Parroquia del Sagrado Corazón de Jesús</h2>
-                <p style="font-weight: 200; margin-bottom: 30px; font-size: 1.1rem;">Calle 20 de Noviembre, Av. Melchor Ocampo y, Pacífico, 31030 Chihuahua, Chih.</p>
-                <a href="https://maps.app.goo.gl/M8jaPeAWDfvWsQfi6?g_st=ic" target="_blank" class="btn-luxury" style="background: white;">Ver Ubicación</a>
+                <h2 class="info-title">Templo de San Juan Bosco</h2>
+                <a href="https://maps.app.goo.gl/o7bCTGWtggs9B1U76?g_st=ic" target="_blank" class="btn-luxury" style="background: white; margin-top: 20px;">Ver Ubicación</a>
+            </div>
+        </section>
+        
+        <section class="reveal">
+            <div class="loc-box" style="background-image: url('assets/salon.jpg');">
+                <span class="info-sub">Recepción</span>
+                <h2 class="info-title">Hacienda El Mestizo</h2>
+                <a href="https://maps.app.goo.gl/33bK4Ybj8Q7QWZHA7?g_st=ic" target="_blank" class="btn-luxury" style="background: white; margin-top: 20px;">Ver Ubicación</a>
             </div>
             <div class="divider"></div>
         </section>
 
         <section class="reveal">
             <span class="info-sub">Dress Code</span>
+            <img src="assets/iconos.png" style="max-width: 90px; margin: 0 auto 20px; display: block; opacity: 0.9;" alt="Iconos Dress Code">
             <h2 class="info-title" style="font-style: normal; letter-spacing: 10px;">FORMAL</h2>
             <div class="dress-code">
-                <p class="dress-item"><i class="fa-solid fa-crown"></i> Sugerimos evitar colores Rosas y Dorados</p>
-                <p class="dress-item"><i class="fa-solid fa-crown"></i> Agradecemos no utilizar calzado deportivo (Tenis)</p>
+                <p class="dress-item"><i class="fa-solid fa-crown"></i> Agradecemos NO usar color rosa (reservado para la quinceañera)</p>
+                <p class="dress-item"><i class="fa-solid fa-crown"></i> Agradecemos NO utilizar calzado deportivo</p>
             </div>
         </section>
 
         <section class="reveal">
-            <h1 style="font-family: var(--serif); font-weight: 300; letter-spacing: 15px; font-size: 3rem; color: var(--palo-rosa);">#TEREXV</h1>
+            <h1 style="font-family: var(--serif); font-weight: 300; letter-spacing: 10px; font-size: clamp(2rem, 6vw, 3rem); color: var(--palo-rosa);">#MARIATERESAXV</h1>
             <p style="margin-top: 20px; font-weight: 300;">Comparte tus mejores momentos</p>
             <a href="#" class="btn-luxury" style="margin-top: 30px;">Playlist del Evento</a>
         </section>
@@ -297,7 +358,7 @@
         const envelope = document.getElementById('envelope');
         envelope.addEventListener('click', () => {
             envelope.classList.add('open-env');
-            document.getElementById('envCard').classList.add('env-card'); // Activa transformación
+            document.getElementById('envCard').classList.add('env-card');
             setTimeout(() => {
                 document.getElementById('envelope-screen').style.transform = 'translateY(-100%)';
                 setTimeout(() => {
@@ -320,8 +381,8 @@
             else { music.pause(); icon.className = 'fa-solid fa-play'; }
         }
 
-        // --- COUNTDOWN ---
-        const targetDate = new Date("Aug 28, 2026 18:00:00").getTime();
+        // --- COUNTDOWN REAJUSTADO A LA MISA (5:00 PM) ---
+        const targetDate = new Date("Aug 28, 2026 17:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const dist = targetDate - now;
@@ -338,7 +399,7 @@
             const count = document.getElementById('guestCount').value;
             const attend = document.getElementById('attendance').value;
             if(!name) return alert("Escribe tu nombre");
-            const text = `Hola Teresa! Soy ${name}. Confirmo que ${attend}. Seremos ${count} personas.`;
+            const text = `Hola María Teresa! Soy ${name}. Confirmo que ${attend}. Seremos ${count} personas.`;
             window.open(`https://wa.me/526863068136?text=${encodeURIComponent(text)}`, '_blank');
         }
 
