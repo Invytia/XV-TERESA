@@ -137,8 +137,8 @@
 
         /* --- DRESS CODE --- */
         .dress-code { padding: 20px 0; }
-        .dress-item { font-size: 1.1rem; color: var(--texto); font-weight: 300; margin: 12px 0; display: flex; align-items: center; justify-content: center; gap: 15px; }
-        .dress-item i { color: var(--oro); font-size: 0.8rem; }
+        .dress-item { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 12px 0; }
+        .dress-item i { color: var(--oro); font-size: 0.9rem; font-style: normal; } /* El ícono se mantiene normal para evitar que FontAwesome se distorsione */
 
         /* --- FORMULARIOS INVISIBLES --- */
         .form-wrap { max-width: 500px; margin: 40px auto 0; text-align: left; }
@@ -207,7 +207,7 @@
         <section class="reveal">
             <p class="phrase">"Hay momentos en la vida que representan un antes y un después. El comienzo y el final de una etapa, y lo que los hace realmente especiales, son las personas con las que se comparten."</p>
             <div class="divider"></div>
-            <!-- Aplicando la nueva clase tipográfica elegante -->
+            <!-- Aplicando la clase tipográfica elegante -->
             <p class="texto-destacado">Te espero para celebrar mis quince primaveras.</p>
         </section>
 
@@ -303,14 +303,15 @@
             <img src="assets/iconos.png" style="max-width: 90px; margin: 0 auto 15px; display: block; opacity: 0.9;" alt="Iconos Dress Code">
             <h2 class="info-title" style="font-style: normal; letter-spacing: 10px;">FORMAL</h2>
             <div class="dress-code">
-                <p class="dress-item"><i class="fa-solid fa-crown"></i> Agradecemos NO usar color rosa (reservado para la quinceañera)</p>
-                <p class="dress-item"><i class="fa-solid fa-crown"></i> Agradecemos NO utilizar calzado deportivo</p>
+                <!-- Se agregó la clase "texto-destacado" a las opciones del dress code -->
+                <p class="dress-item texto-destacado"><i class="fa-solid fa-crown"></i> Agradecemos NO usar color rosa (reservado para la quinceañera)</p>
+                <p class="dress-item texto-destacado"><i class="fa-solid fa-crown"></i> Agradecemos NO utilizar calzado deportivo</p>
             </div>
         </section>
 
         <section class="reveal">
             <h1 style="font-family: var(--serif); font-weight: 300; letter-spacing: 10px; font-size: clamp(2rem, 6vw, 3rem); color: var(--palo-rosa);">#MARIATERESAXV</h1>
-            <!-- Aplicando la nueva clase tipográfica elegante -->
+            <!-- Aplicando la clase tipográfica elegante -->
             <p class="texto-destacado" style="margin-top: 15px;">Comparte tus mejores momentos</p>
             <a href="#" class="btn-luxury" style="margin-top: 25px;">Playlist del Evento</a>
         </section>
@@ -323,7 +324,7 @@
 
         <section class="reveal">
             <h2 class="info-title">¿Me acompañas?</h2>
-            <!-- Aplicando la nueva clase tipográfica elegante -->
+            <!-- Aplicando la clase tipográfica elegante -->
             <p class="texto-destacado" style="margin-bottom: 30px;">Por favor confirma tu asistencia antes del 15 de agosto.</p>
             <div class="form-wrap">
                 <div class="input-group">
