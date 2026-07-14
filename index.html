@@ -74,17 +74,28 @@
         .hero-text h1 { font-family: var(--serif); font-size: clamp(3rem, 12vw, 8rem); font-weight: 300; line-height: 1; }
         .hero-text span { font-family: var(--script); font-size: clamp(2rem, 8vw, 4rem); color: var(--palo-rosa); display: block; margin-top: -10px; }
 
-        /* --- SECCIONES FLUIDAS --- */
-        section { padding: 120px 8%; max-width: 1200px; margin: 0 auto; text-align: center; }
+        /* --- SECCIONES FLUIDAS (ESPACIOS REDUCIDOS) --- */
+        section { padding: 70px 8%; max-width: 1200px; margin: 0 auto; text-align: center; }
         .reveal { opacity: 0; transform: translateY(30px); transition: 1.5s cubic-bezier(0.2, 1, 0.3, 1); will-change: transform, opacity; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .phrase { font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2.5rem); font-style: italic; line-height: 1.5; color: var(--texto); font-weight: 300; }
-        .divider { width: 1px; height: 100px; background: var(--palo-rosa); margin: 60px auto; }
+        /* --- TIPOGRAFÍA MEJORADA PARA TEXTOS DESCRIPTIVOS --- */
+        .texto-destacado {
+            font-family: var(--serif);
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 1px;
+            color: #555555;
+            line-height: 1.5;
+        }
+
+        .phrase { font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2.2rem); font-style: italic; line-height: 1.4; color: var(--texto); font-weight: 300; }
+        .divider { width: 1px; height: 70px; background: var(--palo-rosa); margin: 30px auto; }
 
         /* --- CAJAS DE UBICACIÓN --- */
         .loc-box {
-            position: relative; padding: 60px 20px; margin: 40px auto; max-width: 800px;
+            position: relative; padding: 50px 20px; margin: 20px auto; max-width: 800px;
             background-size: cover; background-position: center; border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden;
         }
@@ -95,8 +106,8 @@
         }
         .loc-box > * { position: relative; z-index: 2; }
 
-        /* --- ITINERARIO AÑADIDO --- */
-        .itinerary { display: flex; flex-direction: column; gap: 30px; max-width: 400px; margin: 50px auto 0; position: relative; }
+        /* --- ITINERARIO --- */
+        .itinerary { display: flex; flex-direction: column; gap: 25px; max-width: 400px; margin: 40px auto 0; position: relative; }
         .itinerary::before { content: ''; position: absolute; top: 0; bottom: 0; left: 24px; width: 1px; background: #EAD8DB; z-index: 0; }
         .itinerary-item { display: flex; align-items: center; gap: 25px; text-align: left; position: relative; z-index: 1; }
         .itinerary-icon { width: 50px; height: 50px; border-radius: 50%; background: var(--blanco); border: 1px solid var(--palo-rosa); display: flex; align-items: center; justify-content: center; color: var(--oro); font-size: 1.1rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
@@ -104,14 +115,14 @@
         .itinerary-info p { font-size: 0.75rem; letter-spacing: 3px; color: var(--oro); text-transform: uppercase; font-weight: 600; margin: 0; line-height: 1; }
 
         /* --- COUNTDOWN REFINADO --- */
-        .countdown { display: flex; justify-content: center; gap: 40px; margin: 60px 0; }
+        .countdown { display: flex; justify-content: center; gap: 30px; margin: 30px 0 40px; }
         .c-item { text-align: center; }
-        .c-item span { display: block; font-size: clamp(2.5rem, 8vw, 4.5rem); font-family: var(--serif); color: var(--oro); font-weight: 300; line-height: 1; }
+        .c-item span { display: block; font-size: clamp(2.5rem, 8vw, 4rem); font-family: var(--serif); color: var(--oro); font-weight: 300; line-height: 1; }
         .c-item label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; color: var(--texto); opacity: 0.5; margin-top: 10px; display: block; }
 
         /* --- BOTONES MINIMALISTAS --- */
         .btn-luxury {
-            display: inline-block; padding: 18px 50px; 
+            display: inline-block; padding: 16px 45px; 
             border: 1px solid var(--oro); color: var(--texto);
             text-decoration: none; font-size: 0.75rem; letter-spacing: 4px;
             text-transform: uppercase; transition: 0.5s ease;
@@ -121,17 +132,17 @@
         .btn-whatsapp { background: #25D366; border-color: #25D366; color: white; }
 
         /* --- UBICACIÓN & INFO --- */
-        .info-title { font-family: var(--serif); font-size: 2.2rem; color: var(--oro); margin-bottom: 10px; font-weight: 400; }
-        .info-sub { font-family: var(--sans); font-weight: 300; letter-spacing: 4px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 30px; display: block; }
+        .info-title { font-family: var(--serif); font-size: 2.2rem; color: var(--oro); margin-bottom: 5px; font-weight: 400; }
+        .info-sub { font-family: var(--sans); font-weight: 300; letter-spacing: 4px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 20px; display: block; }
 
         /* --- DRESS CODE --- */
-        .dress-code { padding: 40px 0; }
-        .dress-item { font-size: 1.1rem; color: var(--texto); font-weight: 300; margin: 15px 0; display: flex; align-items: center; justify-content: center; gap: 15px; }
+        .dress-code { padding: 20px 0; }
+        .dress-item { font-size: 1.1rem; color: var(--texto); font-weight: 300; margin: 12px 0; display: flex; align-items: center; justify-content: center; gap: 15px; }
         .dress-item i { color: var(--oro); font-size: 0.8rem; }
 
         /* --- FORMULARIOS INVISIBLES --- */
-        .form-wrap { max-width: 500px; margin: 60px auto 0; text-align: left; }
-        .input-group { margin-bottom: 35px; }
+        .form-wrap { max-width: 500px; margin: 40px auto 0; text-align: left; }
+        .input-group { margin-bottom: 30px; }
         .input-group label { display: block; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--oro); margin-bottom: 10px; font-weight: 600; }
         input, select, textarea {
             width: 100%; border: none; border-bottom: 1px solid #E0E0E0; padding: 12px 0;
@@ -141,16 +152,16 @@
         input:focus { border-bottom-color: var(--oro); }
 
         /* --- MURO DE DESEOS --- */
-        .wish-post { margin-top: 40px; text-align: left; padding-bottom: 20px; border-bottom: 1px solid #F0F0F0; }
+        .wish-post { margin-top: 30px; text-align: left; padding-bottom: 15px; border-bottom: 1px solid #F0F0F0; }
         .wish-post strong { font-family: var(--serif); font-size: 1.2rem; color: var(--oro); font-weight: 400; display: block; margin-bottom: 5px; }
         .wish-post p { font-weight: 300; font-size: 0.95rem; font-style: italic; color: var(--texto); }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            section { padding: 80px 20px; }
+            section { padding: 50px 20px; }
             .countdown { gap: 20px; }
             .hero { height: 90vh; }
-            .loc-box { padding: 40px 15px; }
+            .loc-box { padding: 35px 15px; }
         }
 
         .music-toggle { position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px; border-radius: 50%; background: var(--blanco); border: 1px solid var(--palo-rosa); color: var(--palo-rosa); z-index: 1000; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -196,7 +207,8 @@
         <section class="reveal">
             <p class="phrase">"Hay momentos en la vida que representan un antes y un después. El comienzo y el final de una etapa, y lo que los hace realmente especiales, son las personas con las que se comparten."</p>
             <div class="divider"></div>
-            <p style="font-weight: 300; letter-spacing: 2px;">Te espero para celebrar mis quince primaveras.</p>
+            <!-- Aplicando la nueva clase tipográfica elegante -->
+            <p class="texto-destacado">Te espero para celebrar mis quince primaveras.</p>
         </section>
 
         <section class="reveal">
@@ -211,7 +223,7 @@
 
         <section class="reveal">
             <span class="info-sub">Con la bendición de mis padres</span>
-            <h2 class="info-title" style="line-height: 1.2; margin-bottom: 50px;">Myrna Rodríguez Frías<br>Omar Ayala</h2>
+            <h2 class="info-title" style="line-height: 1.2; margin-bottom: 40px;">Myrna Rodríguez Frías<br>Omar Ayala</h2>
             
             <span class="info-sub">Y de mis padrinos</span>
             <h2 class="info-title" style="line-height: 1.2; font-size: 1.8rem;">Guadalupe Adriana Chairez Núñez<br>Francisco Olivares Ortega</h2>
@@ -266,14 +278,14 @@
                     </div>
                 </div>
             </div>
-            <div class="divider" style="margin-top: 80px;"></div>
+            <div class="divider" style="margin-top: 60px;"></div>
         </section>
 
         <section class="reveal">
             <div class="loc-box" style="background-image: url('assets/iglesia.jpg');">
                 <span class="info-sub">Ceremonia</span>
                 <h2 class="info-title">Templo de San Juan Bosco</h2>
-                <a href="https://maps.app.goo.gl/o7bCTGWtggs9B1U76?g_st=ic" target="_blank" class="btn-luxury" style="background: white; margin-top: 20px;">Ver Ubicación</a>
+                <a href="https://maps.app.goo.gl/o7bCTGWtggs9B1U76?g_st=ic" target="_blank" class="btn-luxury" style="background: white; margin-top: 15px;">Ver Ubicación</a>
             </div>
         </section>
         
@@ -281,14 +293,14 @@
             <div class="loc-box" style="background-image: url('assets/salon.jpg');">
                 <span class="info-sub">Recepción</span>
                 <h2 class="info-title">Hacienda El Mestizo</h2>
-                <a href="https://maps.app.goo.gl/33bK4Ybj8Q7QWZHA7?g_st=ic" target="_blank" class="btn-luxury" style="background: white; margin-top: 20px;">Ver Ubicación</a>
+                <a href="https://maps.app.goo.gl/33bK4Ybj8Q7QWZHA7?g_st=ic" target="_blank" class="btn-luxury" style="background: white; margin-top: 15px;">Ver Ubicación</a>
             </div>
             <div class="divider"></div>
         </section>
 
         <section class="reveal">
             <span class="info-sub">Dress Code</span>
-            <img src="assets/iconos.png" style="max-width: 90px; margin: 0 auto 20px; display: block; opacity: 0.9;" alt="Iconos Dress Code">
+            <img src="assets/iconos.png" style="max-width: 90px; margin: 0 auto 15px; display: block; opacity: 0.9;" alt="Iconos Dress Code">
             <h2 class="info-title" style="font-style: normal; letter-spacing: 10px;">FORMAL</h2>
             <div class="dress-code">
                 <p class="dress-item"><i class="fa-solid fa-crown"></i> Agradecemos NO usar color rosa (reservado para la quinceañera)</p>
@@ -298,19 +310,21 @@
 
         <section class="reveal">
             <h1 style="font-family: var(--serif); font-weight: 300; letter-spacing: 10px; font-size: clamp(2rem, 6vw, 3rem); color: var(--palo-rosa);">#MARIATERESAXV</h1>
-            <p style="margin-top: 20px; font-weight: 300;">Comparte tus mejores momentos</p>
-            <a href="#" class="btn-luxury" style="margin-top: 30px;">Playlist del Evento</a>
+            <!-- Aplicando la nueva clase tipográfica elegante -->
+            <p class="texto-destacado" style="margin-top: 15px;">Comparte tus mejores momentos</p>
+            <a href="#" class="btn-luxury" style="margin-top: 25px;">Playlist del Evento</a>
         </section>
 
         <section class="reveal">
             <span class="info-sub">Mesa de Regalos</span>
             <p class="phrase" style="font-size: 1.4rem;">"Tu presencia es mi mejor regalo, pero si deseas obsequiarme algo especial, agradecería tu detalle en efectivo a través de nuestro buzón de sobres."</p>
-            <p style="margin-top: 30px; letter-spacing: 5px; color: var(--oro); font-weight: 600;">LLUVIA DE SOBRES</p>
+            <p style="margin-top: 25px; letter-spacing: 5px; color: var(--oro); font-weight: 600;">LLUVIA DE SOBRES</p>
         </section>
 
         <section class="reveal">
             <h2 class="info-title">¿Me acompañas?</h2>
-            <p style="font-weight: 200; margin-bottom: 40px;">Por favor confirma tu asistencia antes del 15 de agosto.</p>
+            <!-- Aplicando la nueva clase tipográfica elegante -->
+            <p class="texto-destacado" style="margin-bottom: 30px;">Por favor confirma tu asistencia antes del 15 de agosto.</p>
             <div class="form-wrap">
                 <div class="input-group">
                     <label>Nombre</label>
@@ -335,7 +349,7 @@
             </div>
         </section>
 
-        <section class="reveal" style="padding-bottom: 120px;">
+        <section class="reveal" style="padding-bottom: 80px;">
             <h2 class="info-title">Muro de Deseos</h2>
             <div class="form-wrap">
                 <div class="input-group">
@@ -347,7 +361,7 @@
                     <textarea id="wishMessage"></textarea>
                 </div>
                 <button class="btn-luxury" style="width: 100%; margin: 0; cursor: pointer;" onclick="publishWish()">Publicar Deseo</button>
-                <div id="messagesDisplay" style="margin-top: 40px;"></div>
+                <div id="messagesDisplay" style="margin-top: 30px;"></div>
             </div>
         </section>
 
