@@ -106,10 +106,10 @@
         }
         .loc-box > * { position: relative; z-index: 2; }
 
-        /* --- ITINERARIO --- */
-        .itinerary { display: flex; flex-direction: column; gap: 25px; max-width: 400px; margin: 40px auto 0; position: relative; }
-        .itinerary::before { content: ''; position: absolute; top: 0; bottom: 0; left: 24px; width: 1px; background: #EAD8DB; z-index: 0; }
-        .itinerary-item { display: flex; align-items: center; gap: 25px; text-align: left; position: relative; z-index: 1; }
+        /* --- ITINERARIO (AHORA CENTRADO) --- */
+        .itinerary { display: flex; flex-direction: column; gap: 40px; max-width: 400px; margin: 40px auto 0; position: relative; align-items: center; }
+        .itinerary-item { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; position: relative; z-index: 1; width: 100%; }
+        .itinerary-item:not(:last-child)::after { content: ''; position: absolute; bottom: -26px; left: 50%; transform: translateX(-50%); width: 1px; height: 15px; background: #EAD8DB; }
         .itinerary-icon { width: 50px; height: 50px; border-radius: 50%; background: var(--blanco); border: 1px solid var(--palo-rosa); display: flex; align-items: center; justify-content: center; color: var(--oro); font-size: 1.1rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
         .itinerary-info h4 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--texto); margin-top: 5px; }
         .itinerary-info p { font-size: 0.75rem; letter-spacing: 3px; color: var(--oro); text-transform: uppercase; font-weight: 600; margin: 0; line-height: 1; }
@@ -138,7 +138,7 @@
         /* --- DRESS CODE --- */
         .dress-code { padding: 20px 0; }
         .dress-item { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 12px 0; }
-        .dress-item i { color: var(--oro); font-size: 0.9rem; font-style: normal; } /* El ícono se mantiene normal para evitar que FontAwesome se distorsione */
+        .dress-item i { color: var(--oro); font-size: 0.9rem; font-style: normal; }
 
         /* --- FORMULARIOS INVISIBLES --- */
         .form-wrap { max-width: 500px; margin: 40px auto 0; text-align: left; }
@@ -223,7 +223,7 @@
 
         <section class="reveal">
             <span class="info-sub">Con la bendición de mis padres</span>
-            <h2 class="info-title" style="line-height: 1.2; margin-bottom: 40px;">Myrna Rodríguez Frías<br>Omar Ayala</h2>
+            <h2 class="info-title" style="line-height: 1.2; margin-bottom: 40px;">Myrna Rodríguez Frías<br>Omar Ayala Alarcón</h2>
             
             <span class="info-sub">Y de mis padrinos</span>
             <h2 class="info-title" style="line-height: 1.2; font-size: 1.8rem;">Guadalupe Adriana Chairez Núñez<br>Francisco Olivares Ortega</h2>
@@ -307,13 +307,28 @@
                 <p class="dress-item texto-destacado"><i class="fa-solid fa-crown"></i> Agradecemos NO usar color rosa (reservado para la quinceañera)</p>
                 <p class="dress-item texto-destacado"><i class="fa-solid fa-crown"></i> Agradecemos NO utilizar calzado deportivo</p>
             </div>
+            <div class="divider"></div>
+        </section>
+
+        <!-- SECCIÓN DE SPOTIFY INTEGRADA -->
+        <section class="reveal" style="padding-top: 0;">
+            <span class="info-sub">Música</span>
+            <h2 class="info-title">Playlist Colaborativa</h2>
+            <p class="texto-destacado" style="margin-bottom: 40px; font-size: clamp(1.2rem, 3vw, 1.5rem);">Ayúdame a crear el ambiente perfecto. Añade tus canciones favoritas a nuestra lista.</p>
+            
+            <div style="max-width: 500px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-radius: 12px; overflow: hidden; border: 1px solid var(--palo-rosa-claro);">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5G7YGIytg8DYyfWQMq24eC?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            
+            <a href="https://open.spotify.com/playlist/5G7YGIytg8DYyfWQMq24eC?si=WnZiroqQRaiQWaHbtcaMpQ&utm_source=copy-link&pi=R7VrKQPJSLONj" target="_blank" class="btn-luxury" style="margin-top: 35px;">
+                <i class="fa-brands fa-spotify" style="margin-right: 8px;"></i> Agregar Canciones
+            </a>
         </section>
 
         <section class="reveal">
             <h1 style="font-family: var(--serif); font-weight: 300; letter-spacing: 10px; font-size: clamp(2rem, 6vw, 3rem); color: var(--palo-rosa);">#MARIATERESAXV</h1>
             <!-- Aplicando la clase tipográfica elegante -->
             <p class="texto-destacado" style="margin-top: 15px;">Comparte tus mejores momentos</p>
-            <a href="#" class="btn-luxury" style="margin-top: 25px;">Playlist del Evento</a>
         </section>
 
         <section class="reveal">
