@@ -106,6 +106,34 @@
         }
         .loc-box > * { position: relative; z-index: 2; }
 
+        /* --- GALERÍA DE FOTOS (NUEVO) --- */
+        .photo-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+        .photo-single {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 4px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            object-fit: cover;
+        }
+        .photo-grid-2 img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            object-fit: cover;
+        }
+        @media(min-width: 768px) {
+            .photo-grid-2 { grid-template-columns: 1fr 1fr; }
+        }
+
         /* --- ITINERARIO (AHORA CENTRADO) --- */
         .itinerary { display: flex; flex-direction: column; gap: 40px; max-width: 400px; margin: 40px auto 0; position: relative; align-items: center; }
         .itinerary-item { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; position: relative; z-index: 1; width: 100%; }
@@ -196,7 +224,7 @@
         <img src="assets/flor.png" class="floral-bg-fixed bg-f2" alt="Flor de fondo">
 
         <section class="hero" style="padding:0;">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/16815432218834689453" class="hero-img" alt="María Teresa">
+            <img src="assets/hero.jpg" class="hero-img" alt="María Teresa">
             <div class="hero-text">
                 <h3>Mis XV Años</h3>
                 <h1>María Teresa</h1>
@@ -207,8 +235,15 @@
         <section class="reveal">
             <p class="phrase">"Hay momentos en la vida que representan un antes y un después. El comienzo y el final de una etapa, y lo que los hace realmente especiales, son las personas con las que se comparten."</p>
             <div class="divider"></div>
-            <!-- Aplicando la clase tipográfica elegante -->
             <p class="texto-destacado">Te espero para celebrar mis quince primaveras.</p>
+        </section>
+
+        <!-- FOTOS 1 Y 2 -->
+        <section class="reveal" style="padding-top: 0;">
+            <div class="photo-grid-2">
+                <img src="assets/foto1.jpg" alt="María Teresa XV">
+                <img src="assets/foto2.jpg" alt="María Teresa XV">
+            </div>
         </section>
 
         <section class="reveal">
@@ -227,6 +262,11 @@
             
             <span class="info-sub">Y de mis padrinos</span>
             <h2 class="info-title" style="line-height: 1.2; font-size: 1.8rem;">Guadalupe Adriana Chairez Núñez<br>Francisco Olivares Ortega</h2>
+        </section>
+
+        <!-- FOTO 3 -->
+        <section class="reveal" style="padding-top: 0;">
+            <img src="assets/foto3.jpg" class="photo-single" alt="María Teresa XV">
         </section>
 
         <section class="reveal">
@@ -281,6 +321,14 @@
             <div class="divider" style="margin-top: 60px;"></div>
         </section>
 
+        <!-- FOTOS 4 Y 5 -->
+        <section class="reveal" style="padding-top: 0;">
+            <div class="photo-grid-2">
+                <img src="assets/foto4.jpg" alt="María Teresa XV">
+                <img src="assets/foto5.jpg" alt="María Teresa XV">
+            </div>
+        </section>
+
         <section class="reveal">
             <div class="loc-box" style="background-image: url('assets/iglesia.jpg');">
                 <span class="info-sub">Ceremonia</span>
@@ -298,12 +346,16 @@
             <div class="divider"></div>
         </section>
 
+        <!-- FOTO 6 -->
+        <section class="reveal" style="padding-top: 0;">
+            <img src="assets/foto6.jpg" class="photo-single" alt="María Teresa XV">
+        </section>
+
         <section class="reveal">
             <span class="info-sub">Dress Code</span>
             <img src="assets/iconos.png" style="max-width: 90px; margin: 0 auto 15px; display: block; opacity: 0.9;" alt="Iconos Dress Code">
             <h2 class="info-title" style="font-style: normal; letter-spacing: 10px;">FORMAL</h2>
             <div class="dress-code">
-                <!-- Se agregó la clase "texto-destacado" a las opciones del dress code -->
                 <p class="dress-item texto-destacado"><i class="fa-solid fa-crown"></i> Agradecemos NO usar color rosa (reservado para la quinceañera)</p>
                 <p class="dress-item texto-destacado"><i class="fa-solid fa-crown"></i> Agradecemos NO utilizar calzado deportivo</p>
             </div>
@@ -325,10 +377,25 @@
             </a>
         </section>
 
+        <!-- FOTOS 7 Y 8 -->
+        <section class="reveal" style="padding-top: 0;">
+            <div class="photo-grid-2">
+                <img src="assets/foto7.jpg" alt="María Teresa XV">
+                <img src="assets/foto8.jpg" alt="María Teresa XV">
+            </div>
+        </section>
+
         <section class="reveal">
-            <!-- AQUI SE AJUSTO EL HASHTAG PARA QUE NO SE CORTE -->
             <h1 style="font-family: var(--serif); font-weight: 300; letter-spacing: 4px; font-size: clamp(1.2rem, 4vw, 2.5rem); color: var(--palo-rosa);">#MARIATERESAXV</h1>
             <p class="texto-destacado" style="margin-top: 15px;">Comparte tus mejores momentos</p>
+        </section>
+
+        <!-- FOTOS 9 Y 10 -->
+        <section class="reveal" style="padding-top: 0;">
+            <div class="photo-grid-2">
+                <img src="assets/foto9.jpg" alt="María Teresa XV">
+                <img src="assets/foto10.jpg" alt="María Teresa XV">
+            </div>
         </section>
 
         <section class="reveal">
@@ -339,7 +406,6 @@
 
         <section class="reveal">
             <h2 class="info-title">¿Me acompañas?</h2>
-            <!-- Aplicando la clase tipográfica elegante -->
             <p class="texto-destacado" style="margin-bottom: 30px;">Por favor confirma tu asistencia antes del 15 de agosto.</p>
             <div class="form-wrap">
                 <div class="input-group">
