@@ -285,7 +285,7 @@
                 <div class="itinerary-item">
                     <div class="itinerary-icon"><i class="fa-solid fa-church"></i></div>
                     <div class="itinerary-info">
-                        <p>5:00 PM</p>
+                        <p>6:00 PM</p>
                         <h4>Misa</h4>
                     </div>
                 </div>
@@ -353,11 +353,6 @@
             <div class="divider"></div>
         </section>
 
-        <!-- FOTO 6 -->
-        <section class="reveal" style="padding-top: 0;">
-            <img src="assets/foto6.jpg" class="photo-single" alt="María Teresa XV">
-        </section>
-
         <section class="reveal">
             <span class="info-sub">Dress Code</span>
             <img src="assets/iconos.png" style="max-width: 90px; margin: 0 auto 15px; display: block; opacity: 0.9;" alt="Iconos Dress Code">
@@ -384,12 +379,9 @@
             </a>
         </section>
 
-        <!-- FOTOS 7 Y 8 -->
+        <!-- FOTO 7 -->
         <section class="reveal" style="padding-top: 0;">
-            <div class="photo-grid-2">
-                <img src="assets/foto7.jpg" alt="María Teresa XV">
-                <img src="assets/foto8.jpg" alt="María Teresa XV">
-            </div>
+            <img src="assets/foto7.jpg" class="photo-single" alt="María Teresa XV">
         </section>
 
         <section class="reveal">
@@ -397,12 +389,9 @@
             <p class="texto-destacado" style="margin-top: 15px;">Comparte tus mejores momentos</p>
         </section>
 
-        <!-- FOTOS 9 Y 10 -->
+        <!-- FOTO 10 -->
         <section class="reveal" style="padding-top: 0;">
-            <div class="photo-grid-2">
-                <img src="assets/foto9.jpg" alt="María Teresa XV">
-                <img src="assets/foto10.jpg" alt="María Teresa XV">
-            </div>
+            <img src="assets/foto10.jpg" class="photo-single" alt="María Teresa XV">
         </section>
 
         <section class="reveal">
@@ -483,8 +472,8 @@
             else { music.pause(); icon.className = 'fa-solid fa-play'; }
         }
 
-        // --- COUNTDOWN REAJUSTADO A LA MISA (5:00 PM) ---
-        const targetDate = new Date("Aug 28, 2026 17:00:00").getTime();
+        // --- COUNTDOWN REAJUSTADO A LA MISA (6:00 PM) ---
+        const targetDate = new Date("Aug 28, 2026 18:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const dist = targetDate - now;
@@ -519,7 +508,6 @@
         }
 
         // --- REVEAL LÍQUIDO OPTIMIZADO (INTERSECTION OBSERVER) ---
-        // Esto reemplaza el antiguo evento 'scroll' que causaba lag
         document.addEventListener("DOMContentLoaded", () => {
             const reveals = document.querySelectorAll(".reveal");
             const observerOptions = {
@@ -532,7 +520,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("active");
-                        // Opcional: Desactivar la observación una vez revelado para ahorrar más recursos
                         observer.unobserve(entry.target);
                     }
                 });
