@@ -438,6 +438,7 @@
                     <label>Mensaje</label>
                     <textarea id="wishMessage"></textarea>
                 </div>
+                <!-- Se puede cambiar el texto del botón aquí a 'Enviar por WhatsApp' si se prefiere -->
                 <button class="btn-luxury" style="width: 100%; margin: 0; cursor: pointer;" onclick="publishWish()">Publicar Deseo</button>
                 <div id="messagesDisplay" style="margin-top: 30px;"></div>
             </div>
@@ -498,11 +499,20 @@
         function publishWish() {
             const name = document.getElementById('wishName').value;
             const msg = document.getElementById('wishMessage').value;
+            
             if(!name || !msg) return alert("Completa los campos");
+
+            // 1. Crear y enviar el mensaje por WhatsApp
+            const text = `¡Hola María Teresa! Soy ${name} y te dejo este mensaje en tu Muro de Deseos: "${msg}"`;
+            window.open(`https://wa.me/526565168699?text=${encodeURIComponent(text)}`, '_blank');
+
+            // 2. Mostrar el deseo visualmente en el DOM
             const div = document.createElement('div');
             div.className = 'wish-post';
             div.innerHTML = `<strong>${name}</strong><p>"${msg}"</p>`;
             document.getElementById('messagesDisplay').prepend(div);
+            
+            // 3. Limpiar los campos del formulario
             document.getElementById('wishName').value = "";
             document.getElementById('wishMessage').value = "";
         }
